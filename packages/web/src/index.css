@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --default-text-color: #1e293b;
+  --default-bg-color: #f8fafc;
+  --loader-color: #38bdf8;
+  font-size: 16px;
+  font-family: open sans, -apple-system, Arial, sans-serif;
+  color: var(--default-text-color);
+  background: var(--default-bg-color);
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  :root {
+    font-size: 14px;
+  }
+}
