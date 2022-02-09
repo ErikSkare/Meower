@@ -20,7 +20,9 @@ defmodule ApiWeb.Endpoint do
     at: "/",
     from: :api,
     gzip: false,
-    only: ~w(uploads)
+    only: ~w(images robots.txt)
+
+  plug Plug.Static, at: "/uploads", from: "uploads"
 
   # Setup policies
   plug Corsica,

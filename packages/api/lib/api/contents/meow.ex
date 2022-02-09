@@ -6,6 +6,7 @@ defmodule Api.Contents.Meow do
   alias Api.Repo
   alias Api.Accounts.User
   alias Api.Contents.Like
+  alias Api.Utils.Uploader
 
   schema "meows" do
     belongs_to :creator, User
@@ -28,7 +29,7 @@ defmodule Api.Contents.Meow do
   def create_changeset(attrs, %User{} = creator) do
     %Meow{}
     |> update_changeset(attrs)
-    |> cast(attrs, [:image_url])
+    |> Uploader.cast_upload(attrs, "image", :image_url)
     |> put_assoc(:creator, creator)
   end
 

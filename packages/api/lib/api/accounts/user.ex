@@ -4,6 +4,7 @@ defmodule Api.Accounts.User do
   import Pbkdf2
   alias __MODULE__
   alias Api.Contents.Meow
+  alias Api.Utils.Uploader
 
   schema "users" do
     field :email, :string, unique: true
@@ -18,7 +19,8 @@ defmodule Api.Accounts.User do
 
   def update_changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:email, :username, :avatar_url, :bio])
+    |> cast(attrs, [:email, :username, :bio])
+    |> Uploader.cast_upload(attrs, "avatar", :avatar_url)
     |> validate_required([:email, :username])
     |> unique_constraint(:username)
     |> unique_constraint(:email)
