@@ -1,9 +1,12 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {QueryClientProvider} from "react-query";
+import ReactModal from "react-modal";
 import queryClient from "./setup/query";
 import {useAutoRefresh} from "./services/auth";
 import Loader from "./components/Loader";
 import Feed from "./pages/Feed";
+
+ReactModal.setAppElement("#root");
 
 function App() {
   const {isLoading, isAuth} = useAutoRefresh();

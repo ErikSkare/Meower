@@ -33,6 +33,13 @@ const Feed = () => {
 
   if (isError) return <Page5xx />;
 
+  if ((meows!.pages[0].data.length as number) === 0)
+    return (
+      <DefaultLayout>
+        <h2>Nincs egyetlen Meow sem!</h2>
+      </DefaultLayout>
+    );
+
   return (
     <DefaultLayout>
       <div className="w-full flex flex-col items-center gap-10 pb-10">

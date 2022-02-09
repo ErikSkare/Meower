@@ -19,6 +19,13 @@ h1 {
   margin-bottom: 1.25rem;
 }
 
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
 @media (max-width: 640px) {
   :root {
     font-size: 14px;

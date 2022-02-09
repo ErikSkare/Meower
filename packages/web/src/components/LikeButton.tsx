@@ -14,7 +14,9 @@ const LikeButton: React.FC<LikeButtonProps> = ({
   return (
     <div
       className={`flex flex-row gap-2 items-center cursor-pointer ${
-        hasLiked ? "fill-sky-400 text-sky-400" : "fill-slate-400 text-slate-400"
+        hasLiked
+          ? "fill-sky-400 text-sky-400"
+          : "fill-slate-400 hover:fill-slate-500 text-slate-400 hover:text-slate-500"
       }`}
       onClick={() => onLikeToggle()}
     >

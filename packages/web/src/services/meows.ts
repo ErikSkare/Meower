@@ -12,10 +12,12 @@ const fetchMeows = ({pageParam = null}) => {
     : api.get(`meows?limit=${MEOWS_LIMIT}&cursor=${pageParam}`);
 };
 
-const toggleLike = (id: number) =>
-  api.post<AxiosResponse<void>, AxiosError<DefaultError>>(
-    `meows/${id}/likes/toggle`
-  );
+const toggleLike = (id: number) => api.post(`meows/${id}/likes/toggle`);
+
+const createMeow = (formData: FormData) =>
+  api.post("meows", formData, {
+    headers: {"Content-Type": "multipart/form-data"},
+  });
 
 export const useMeows = () => {
   return useInfiniteQuery<AxiosResponse<[Meow]>, AxiosError<DefaultError>>(
@@ -23,8 +25,9 @@ export const useMeows = () => {
     fetchMeows,
     {
       getNextPageParam: (lastPage) => {
-        const lastID = lastPage.data[lastPage.data.length - 1].id;
-        return (lastID !== 1 ? lastID : false) ?? false;
+        if ((lastPage.data.length as number) === 0) return false;
+        const lastID = lastPage.data[lastPage.data.length - 1].id ?? 1;
+        return lastID !== 1 ? lastID : false;
       },
     }
   );
@@ -51,6 +54,14 @@ export const useToggleLike = () => {
     },
     onError: (error, id, context) => {
       queryClient.setQueryData("meows", context!.previousMeows);
+    },
+  });
+};
+
+export const useCreateMeow = () => {
+  return useMutation(createMeow, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("meows");
     },
   });
 };
