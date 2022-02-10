@@ -81,7 +81,7 @@ const Meow = () => {
           likeCount={meow!.like_count}
           onLikeToggle={() => toggleLike(meow!.id)}
         />
-        <div className="w-full flex flex-col items-center gap-6 bg-white py-6 border border-slate-200 border-t-0">
+        <div className="w-full flex flex-col items-center gap-6 bg-white px-4 py-6 border border-slate-200 border-t-0">
           <form
             className="w-full max-w-md flex flex-row gap-4"
             onSubmit={handleCommentCreate}
