@@ -32,4 +32,18 @@ defmodule Api.ContentsFixtures do
 
     like
   end
+
+  @doc """
+  Generate a comment.
+  """
+  def comment_fixture(attrs \\ %{}) do
+    {:ok, comment} =
+      attrs
+      |> Enum.into(%{
+        content: "some content"
+      })
+      |> Api.Contents.create_comment()
+
+    comment
+  end
 end

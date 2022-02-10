@@ -51,7 +51,7 @@ const DefaultLayout = ({children}) => {
             <div className="flex flex-row-reverse items-center gap-6">
               <Link to="/profile">
                 <img
-                  src={me!.data.avatar_url}
+                  src={me!.avatar_url}
                   className="aspect-square object-cover w-auto h-8 rounded-full cursor-pointer"
                   alt="profile"
                 />

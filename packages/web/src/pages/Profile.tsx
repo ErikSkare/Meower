@@ -47,21 +47,21 @@ const Profile = () => {
           <TextInput
             id="email"
             label="Email cím"
-            placeholder={me!.data.email!}
+            placeholder={me!.email!}
             value={email}
             setValue={setEmail}
           />
           <TextInput
             id="username"
             label="Felhasználónév"
-            placeholder={me!.data.username}
+            placeholder={me!.username}
             value={username}
             setValue={setUsername}
           />
           <TextArea
             id="bio"
             label="Bio"
-            placeholder={me!.data.bio}
+            placeholder={me!.bio}
             value={bio}
             setValue={setBio}
           />

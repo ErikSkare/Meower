@@ -6,6 +6,7 @@ import {useAutoRefresh} from "./services/auth";
 import Loader from "./components/Loader";
 import Feed from "./pages/Feed";
 import Profile from "./pages/Profile";
+import Meow from "./pages/Meow";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 
@@ -28,6 +29,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Feed />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/meows/:id" element={<Meow />} />
           </Routes>
         ) : (
           <Routes>

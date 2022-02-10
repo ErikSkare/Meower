@@ -20,7 +20,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
       disabled={isLoading}
       {...props}
     >
-      {isLoading ? <PulseLoader color="white" margin="0" /> : <>{children}</>}
+      {isLoading ? <PulseLoader color="white" margin="0px" /> : <>{children}</>}
     </button>
   );
 };

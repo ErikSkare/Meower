@@ -10,9 +10,9 @@ const updateMe = (formData: FormData) =>
   api.put("me", formData, {headers: {"Content-Type": "multipart/form-data"}});
 
 export const useMe = () => {
-  return useQuery<AxiosResponse<User>, AxiosError<DefaultError>>(
+  return useQuery<User, AxiosError<DefaultError>>(
     ["users", "me"],
-    fetchMe,
+    () => fetchMe().then((response) => response.data),
     {staleTime: Infinity}
   );
 };

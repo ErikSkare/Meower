@@ -21,6 +21,13 @@ export type Like = {
   meow_id: string;
 };
 
+export type Comment = {
+  id: number;
+  content: string;
+  user: User;
+  inserted_at: string;
+};
+
 export type DefaultError = {
   detail: string;
 };

@@ -36,7 +36,7 @@ const Login = () => {
         </PrimaryButton>
       </form>
       <Link to="/register" className="mt-2">
-        <a className="text-slate-400">Nincs még fiókod?</a>
+        <span className="text-slate-400">Nincs még fiókod?</span>
       </Link>
     </div>
   );

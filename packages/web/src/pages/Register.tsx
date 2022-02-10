@@ -56,7 +56,7 @@ const Register = () => {
         </PrimaryButton>
       </form>
       <Link to="/" className="mt-2">
-        <a className="text-slate-400">Van már fiókod?</a>
+        <span className="text-slate-400">Van már fiókod?</span>
       </Link>
     </div>
   );

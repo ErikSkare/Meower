@@ -106,9 +106,7 @@ export const useLogin = () => {
     api
       .post<AuthResponse>("login", {email, password})
       .then(({data}) => {
-        queryClient.clear();
         setAuthenticated(data.access);
-        setLoading(false);
         navigate("/");
       })
       .catch(() => {
@@ -131,9 +129,7 @@ export const useRegister = () => {
     api
       .post<AuthResponse>("register", {user})
       .then(({data}) => {
-        queryClient.clear();
         setAuthenticated(data.access);
-        setLoading(false);
         navigate("/");
       })
       .catch(() => {

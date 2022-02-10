@@ -33,7 +33,7 @@ const Feed = () => {
 
   if (isError) return <Page5xx />;
 
-  if ((meows!.pages[0].data.length as number) === 0)
+  if ((meows!.pages[0].length as number) === 0)
     return (
       <DefaultLayout>
         <h2>Nincs egyetlen Meow sem!</h2>
@@ -45,14 +45,11 @@ const Feed = () => {
       <div className="w-full flex flex-col items-center gap-10 pb-10">
         {meows!.pages.map((group, i) => (
           <React.Fragment key={i}>
-            {group.data.map((meow) => (
+            {group.map((meow) => (
               <MeowPreview
-                ref={
-                  meow.id === group.data[group.data.length - 1].id
-                    ? lastRef
-                    : null
-                }
+                ref={meow.id === group[group.length - 1].id ? lastRef : null}
                 key={meow.id}
+                meowID={meow.id}
                 avatarUrl={meow.creator.avatar_url}
                 creatorName={meow.creator.username}
                 meowedAt={meow.inserted_at}

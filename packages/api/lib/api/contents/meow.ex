@@ -6,6 +6,7 @@ defmodule Api.Contents.Meow do
   alias Api.Repo
   alias Api.Accounts.User
   alias Api.Contents.Like
+  alias Api.Contents.Comment
   alias Api.Utils.Uploader
 
   schema "meows" do
@@ -15,6 +16,7 @@ defmodule Api.Contents.Meow do
     timestamps([type: :utc_datetime])
 
     has_many :likes, Like, foreign_key: :meow_id, on_replace: :delete, on_delete: :delete_all
+    has_many :comments, Comment, foreign_key: :meow_id, on_replace: :delete, on_delete: :delete_all
 
     field :has_liked, :boolean, virtual: :true
     field :like_count, :integer, virtual: true

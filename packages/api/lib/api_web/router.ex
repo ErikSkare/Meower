@@ -25,6 +25,9 @@ defmodule ApiWeb.Router do
     post "/meows", MeowController, :create
 
     post "/meows/:id/likes/toggle", LikeController, :toggle
+
+    get "/meows/:meow_id/comments", CommentController, :index
+    post "/meows/:meow_id/comments", CommentController, :create
   end
 
   # Enables LiveDashboard only for development
