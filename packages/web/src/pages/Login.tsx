@@ -15,7 +15,7 @@ const Login = () => {
   };
 
   return (
-    <div className="w-screen h-screen flex flex-col items-center justify-center">
+    <div className="w-screen h-screen flex flex-col items-center justify-center px-6">
       <h2>Bejelentkezés</h2>
       <form className="w-full max-w-sm flex flex-col gap-6" onSubmit={onSubmit}>
         <TextInput

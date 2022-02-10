@@ -43,7 +43,7 @@ const DefaultLayout = ({children}) => {
             className="w-full py-2 flex justify-between items-center m-auto px-10"
             style={{maxWidth: "1200px"}}
           >
-            <Link to="/">
+            <Link to="/" style={{textDecoration: "none"}}>
               <div style={{fontFamily: "yellowtail", fontSize: "2rem"}}>
                 Meower
               </div>

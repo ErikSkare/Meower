@@ -38,7 +38,7 @@ const Profile = () => {
 
   return (
     <DefaultLayout>
-      <div className="w-full flex flex-col items-center">
+      <div className="w-full flex flex-col items-center px-6">
         <h2>Profil módosítása</h2>
         <form
           className="w-full max-w-md mx-10 flex flex-col gap-6 items-center pb-10"
