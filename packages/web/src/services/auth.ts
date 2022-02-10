@@ -1,5 +1,5 @@
 import {useNavigate} from "react-router-dom";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {AuthResponse} from "../types";
 import useAuth from "../stores/useAuth";
 import api from "../setup/api";
@@ -92,4 +92,28 @@ export const useLogout = () => {
   };
 
   return logout;
+};
+
+export const useLogin = () => {
+  const {setAuthenticated} = useAuth();
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const login = (email: string, password: string) => {
+    setLoading(true);
+    api
+      .post<AuthResponse>("login", {email, password})
+      .then(({data}) => {
+        setAuthenticated(data.access);
+        navigate("/");
+        setLoading(false);
+      })
+      .catch(() => {
+        setError("Hibás adatok!");
+        setLoading(false);
+      });
+  };
+
+  return {login, error, loading};
 };

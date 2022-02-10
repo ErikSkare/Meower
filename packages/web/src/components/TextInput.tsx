@@ -6,7 +6,8 @@ type TextInputProps = React.DetailedHTMLProps<
 > & {
   id: string;
   label: string;
-  placeholder: string;
+  type?: "text" | "password";
+  placeholder?: string;
   value: string;
   setValue: Function;
 };
@@ -14,7 +15,8 @@ type TextInputProps = React.DetailedHTMLProps<
 const TextInput: React.FC<TextInputProps> = ({
   id,
   label,
-  placeholder,
+  type = "text",
+  placeholder = "",
   value,
   setValue,
   className = "",
@@ -29,8 +31,8 @@ const TextInput: React.FC<TextInputProps> = ({
         placeholder={placeholder}
         value={value}
         onChange={(ev) => setValue(ev.target.value)}
-        type="text"
-        className="w-full h-10 px-2 border border-slate-400 focus:border-sky-500 outline-none mt-1"
+        type={type}
+        className="w-full h-10 px-2 border border-slate-400 rounded focus:border-sky-500 outline-none mt-1"
       />
     </div>
   );

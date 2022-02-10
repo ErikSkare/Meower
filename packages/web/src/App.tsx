@@ -6,6 +6,7 @@ import {useAutoRefresh} from "./services/auth";
 import Loader from "./components/Loader";
 import Feed from "./pages/Feed";
 import Profile from "./pages/Profile";
+import Login from "./pages/Login";
 
 ReactModal.setAppElement("#root");
 
@@ -29,7 +30,7 @@ function App() {
           </Routes>
         ) : (
           <Routes>
-            <Route path="/" element={<div></div>} />
+            <Route path="/" element={<Login />} />
           </Routes>
         )}
       </BrowserRouter>
