@@ -19,8 +19,8 @@ export const useMe = () => {
 
 export const useUpdateMe = () => {
   return useMutation(updateMe, {
-    onSuccess: (data) => {
-      queryClient.setQueryData(["users", "me"], data);
+    onSuccess: (response) => {
+      queryClient.setQueryData(["users", "me"], response.data);
       queryClient.invalidateQueries("meows");
     },
   });
