@@ -7,6 +7,7 @@ import Loader from "./components/Loader";
 import Feed from "./pages/Feed";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 ReactModal.setAppElement("#root");
 
@@ -31,6 +32,7 @@ function App() {
         ) : (
           <Routes>
             <Route path="/" element={<Login />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
         )}
       </BrowserRouter>

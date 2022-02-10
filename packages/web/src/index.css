@@ -26,6 +26,11 @@ h2 {
   margin-bottom: 1.25rem;
 }
 
+a {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 @media (max-width: 640px) {
   :root {
     font-size: 14px;

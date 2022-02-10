@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import {AuthResponse} from "../types";
 import useAuth from "../stores/useAuth";
 import api from "../setup/api";
+import queryClient from "../setup/query";
 
 const refreshAccessToken = async () => {
   const {data} = await api.get<AuthResponse>("refresh");
@@ -86,11 +87,11 @@ export const useLogout = () => {
 
   const logout = () => {
     api.post("logout").then(() => {
+      queryClient.clear();
       setUnauthenticated();
       navigate("/");
     });
   };
-
   return logout;
 };
 
@@ -105,9 +106,10 @@ export const useLogin = () => {
     api
       .post<AuthResponse>("login", {email, password})
       .then(({data}) => {
+        queryClient.clear();
         setAuthenticated(data.access);
-        navigate("/");
         setLoading(false);
+        navigate("/");
       })
       .catch(() => {
         setError("Hibás adatok!");
@@ -116,4 +118,29 @@ export const useLogin = () => {
   };
 
   return {login, error, loading};
+};
+
+export const useRegister = () => {
+  const {setAuthenticated} = useAuth();
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const register = (user: any) => {
+    setLoading(true);
+    api
+      .post<AuthResponse>("register", {user})
+      .then(({data}) => {
+        queryClient.clear();
+        setAuthenticated(data.access);
+        setLoading(false);
+        navigate("/");
+      })
+      .catch(() => {
+        setError("Hibás adatok!");
+        setLoading(false);
+      });
+  };
+
+  return {register, error, loading};
 };
