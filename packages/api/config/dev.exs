@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :api, Api.Repo,
   username: "postgres",
-  password: "skareerik01",
+  password: "dev_password",
   database: "api_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
