@@ -1,5 +1,5 @@
 import {useQuery, useMutation} from "react-query";
-import {AxiosError, AxiosResponse} from "axios";
+import {AxiosError} from "axios";
 import queryClient from "../setup/query";
 import {DefaultError, User} from "../types";
 import api from "../setup/api";

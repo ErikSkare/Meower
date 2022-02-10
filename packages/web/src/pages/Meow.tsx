@@ -20,7 +20,6 @@ const Meow = () => {
   const {
     data: comments,
     isLoading: isLoadingComments,
-    isFetchingNextPage: isFetchingMoreComments,
     hasNextPage: hasMoreComments,
     isError: isLoadingCommentsError,
     fetchNextPage: fetchMoreComments,

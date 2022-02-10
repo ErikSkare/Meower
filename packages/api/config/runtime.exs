@@ -41,7 +41,13 @@ if config_env() == :prod do
       ip: {0, 0, 0, 0, 0, 0, 0, 0},
       port: String.to_integer(System.get_env("PORT") || "4000")
     ],
-    secret_key_base: secret_key_base
+    secret_key_base: secret_key_base,
+    web_server_url: System.get_env("WEB_SERVER_URL")
+
+  # The auth secret key abse is used to sign/encrypt JWT tokens.
+  config :api, Api.Accounts.Auth.Token,
+      issuer: "api",
+      secret_key: System.get_env("AUTH_SECRET_KEY_BASE")
 
   # ## Using releases
   #

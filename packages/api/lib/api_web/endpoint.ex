@@ -27,7 +27,7 @@ defmodule ApiWeb.Endpoint do
   # Setup policies
   plug Corsica,
     origins: [
-      "http://localhost:3000"
+      Application.get_env(:api, ApiWeb.Endpoint)[:web_server_url]
     ],
     allow_headers: ["accept", "content-type", "authorization"],
     allow_credentials: true,

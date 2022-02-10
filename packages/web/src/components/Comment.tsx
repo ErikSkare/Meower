@@ -20,6 +20,7 @@ const Comment = React.forwardRef<HTMLDivElement, CommentProps>(
           <img
             src={user.avatar_url}
             className="aspect-square w-8 h-auto rounded-full"
+            alt={user.username}
           />
         </div>
         <div className="flex-1 flex-col py-2 px-4 bg-slate-200 rounded-lg">

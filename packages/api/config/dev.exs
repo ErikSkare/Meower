@@ -23,7 +23,8 @@ config :api, ApiWeb.Endpoint,
   code_reloader: true,
   debug_errors: true,
   secret_key_base: "JsfO522u/0bhhdJCQfTIO5ySnMB8mKH6JQSDbqkX5cQT+P28/1iekJ5tefA+y6PK",
-  watchers: []
+  watchers: [],
+  web_server_url: "http://localhost:3000"
 
 # ## SSL Support
 #
