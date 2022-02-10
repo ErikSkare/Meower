@@ -30,7 +30,7 @@ const TextInput: React.FC<TextInputProps> = ({
         value={value}
         onChange={(ev) => setValue(ev.target.value)}
         type="text"
-        className="w-full h-10 px-2 border border-slate-400 focus:border-sky-500 outline-none"
+        className="w-full h-10 px-2 border border-slate-400 focus:border-sky-500 outline-none mt-1"
       />
     </div>
   );
