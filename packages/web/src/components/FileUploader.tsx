@@ -60,7 +60,7 @@ const FileUploader: React.FC<FileUploaderProps> = ({
   return (
     <div
       ref={ref}
-      className={`w-full max-w-md flex flex-col gap-2 items-center justify-center p-5 border border-slate-400 rounded cursor-pointer ${className}`}
+      className={`w-full max-w-md bg-white flex flex-col gap-2 items-center justify-center p-5 border border-slate-400 rounded cursor-pointer ${className}`}
       {...props}
     >
       {file === null ? (

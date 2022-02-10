@@ -5,6 +5,7 @@ import queryClient from "./setup/query";
 import {useAutoRefresh} from "./services/auth";
 import Loader from "./components/Loader";
 import Feed from "./pages/Feed";
+import Profile from "./pages/Profile";
 
 ReactModal.setAppElement("#root");
 
@@ -24,6 +25,7 @@ function App() {
         {isAuth ? (
           <Routes>
             <Route path="/" element={<Feed />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         ) : (
           <Routes>

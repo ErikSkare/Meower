@@ -46,11 +46,13 @@ const DefaultLayout = ({children}) => {
               </div>
             </Link>
             <div className="flex flex-row-reverse items-center gap-6">
-              <img
-                src={me!.data.avatar_url}
-                className="aspect-square object-cover w-auto h-8 rounded-full cursor-pointer"
-                alt="profile"
-              />
+              <Link to="/profile">
+                <img
+                  src={me!.data.avatar_url}
+                  className="aspect-square object-cover w-auto h-8 rounded-full cursor-pointer"
+                  alt="profile"
+                />
+              </Link>
               <Add
                 className="aspect-square w-auto h-6 fill-slate-400 hover:fill-slate-500 cursor-pointer"
                 onClick={() => setIsCreatorOpen(true)}
