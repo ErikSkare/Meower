@@ -1,10 +1,15 @@
-# Meower
-Social Media for Cats 🐱
+# Meower 🐱
+Social Media for Cats
 
-Meower is a Social Media site built for learning purposes.
-I don't recommend it for serios usecases!
+Meower is a Social Media Site built for learning purposes.
+I do not recommend it for serious usecases!
+
+## Packages
+ - api: Elixir Phoenix Backend, kinda RESTful
+ - web: React Frontend
 
 ## Implemented
+ - Auth
  - Feed
  - Posting Meows
  - Updating profile
