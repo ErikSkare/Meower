@@ -23,6 +23,12 @@ defmodule ApiWeb.AuthController do
     end
   end
 
+  def logout(conn, _params) do
+    conn
+    |> Auth.Token.Plug.sign_out([clear_remember_me: true])
+    |> send_resp(:no_content, "")
+  end
+
   def refresh(conn, _params) do
     with {:ok, refresh} <- Guardian.Plug.find_token_from_cookies(conn),
          {:ok, {_, _}, {new_access, _}} <- Auth.Token.exchange(refresh, "refresh", "access")

@@ -16,4 +16,11 @@ defmodule ApiWeb.UserController do
     current = Auth.Token.Plug.current_resource(conn)
     render(conn, "show.json", user: current, viewer: current)
   end
+
+  def update_me(conn, %{"user" => user_params}) do
+    current = Auth.Token.Plug.current_resource(conn)
+    with {:ok, user} <- Accounts.update_user(current, user_params) do
+      render(conn, "show.json", user: user, viewer: user)
+    end
+  end
 end

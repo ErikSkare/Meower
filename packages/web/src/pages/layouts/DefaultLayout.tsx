@@ -2,10 +2,12 @@ import {useState} from "react";
 import {Link} from "react-router-dom";
 import {useMe} from "../../services/users";
 import {useCreateMeow} from "../../services/meows";
+import {useLogout} from "../../services/auth";
 import Page5xx from "../Page5xx";
 import Loader from "../../components/Loader";
 import MeowCreator from "../../components/MeowCreator";
 import {ReactComponent as Add} from "../../components/icons/add.svg";
+import {ReactComponent as Logout} from "../../components/icons/logout.svg";
 
 const DefaultLayout = ({children}) => {
   const [isCreatorOpen, setIsCreatorOpen] = useState(false);
@@ -14,6 +16,7 @@ const DefaultLayout = ({children}) => {
 
   const {data: me, isLoading: isLoadingMe, isError: isErrorMe} = useMe();
   const {mutate: createMeow, isLoading: isCreating} = useCreateMeow();
+  const logout = useLogout();
 
   const onMeowCreate = (ev) => {
     ev.preventDefault();
@@ -56,6 +59,10 @@ const DefaultLayout = ({children}) => {
               <Add
                 className="aspect-square w-auto h-6 fill-slate-400 hover:fill-slate-500 cursor-pointer"
                 onClick={() => setIsCreatorOpen(true)}
+              />
+              <Logout
+                className="aspect-square w-auto h-6 fill-slate-400 hover:fill-slate-500 cursor-pointer"
+                onClick={() => logout()}
               />
             </div>
           </div>

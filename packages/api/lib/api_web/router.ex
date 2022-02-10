@@ -11,12 +11,14 @@ defmodule ApiWeb.Router do
 
     post "/register", AuthController, :register
     post "/login", AuthController, :login
+    post "/logout", AuthController, :logout
     get "/refresh", AuthController, :refresh
 
     pipe_through Auth.AccessPipeline
 
     get "/users/:username", UserController, :show
     get "/me", UserController, :show_me
+    put "/me", UserController, :update_me
 
     get "/meows", MeowController, :index
     get "/meows/:id", MeowController, :show

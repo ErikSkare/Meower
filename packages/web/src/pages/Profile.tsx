@@ -41,7 +41,7 @@ const Profile = () => {
       <div className="w-full flex flex-col items-center">
         <h2>Profil módosítása</h2>
         <form
-          className="w-full max-w-md mx-10 flex flex-col gap-6 items-center"
+          className="w-full max-w-md mx-10 flex flex-col gap-6 items-center pb-10"
           onSubmit={onSubmit}
         >
           <TextInput

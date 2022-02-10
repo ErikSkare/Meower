@@ -1,3 +1,4 @@
+import {useNavigate} from "react-router-dom";
 import {useEffect} from "react";
 import {AuthResponse} from "../types";
 import useAuth from "../stores/useAuth";
@@ -77,4 +78,18 @@ export const useAutoRefresh = () => {
   }, [accessToken, isAuth, setAuthenticated, setUnauthenticated]);
 
   return {isAuth, isLoading};
+};
+
+export const useLogout = () => {
+  const {setUnauthenticated} = useAuth();
+  const navigate = useNavigate();
+
+  const logout = () => {
+    api.post("logout").then(() => {
+      setUnauthenticated();
+      navigate("/");
+    });
+  };
+
+  return logout;
 };
